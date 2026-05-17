@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDate>
 
+// Temel Sınıf (Abstract Class)
 class Transaction {
 protected:
     int id;
@@ -12,13 +13,15 @@ protected:
     QDate date;
 
 public:
-    Transaction(double amt, QString cat, QDate dt) : amount(amt), category(cat), date(dt) {}
+    Transaction(double amt, QString cat, QDate dt) 
+        : amount(amt), category(cat), date(dt) {}
+    
     virtual ~Transaction() {}
 
-    // Saf sanal fonksiyon (Pure Virtual) - OOP kavramı!
+    // Saf sanal fonksiyon (Çok biçimlilik için)
     virtual QString getType() const = 0; 
-    
-    // Getterlar
+
+    // Getter Metotları
     double getAmount() const { return amount; }
     QString getCategory() const { return category; }
     QDate getDate() const { return date; }
